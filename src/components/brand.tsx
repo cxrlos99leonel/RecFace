@@ -1,31 +1,21 @@
 import { Link } from "@tanstack/react-router";
 import type { SVGProps } from "react";
 
-/** Ícone da marca: rosto dentro da moldura de leitura. */
-export function LogoMark({ className = "", inverted = false }: { className?: string; inverted?: boolean }) {
+/**
+ * Logo RecFace: símbolo de foco + "recface" em Space Grotesk com o "f" e o
+ * último "e" em blocos digitais. Versão clara (Tinta) para fundos claros e
+ * escura (símbolo lima, texto Névoa) para fundos escuros.
+ */
+export function Logo({ inverted = false, className = "h-8" }: { inverted?: boolean; className?: string }) {
   return (
-    <span
-      className={`grid h-9 w-9 place-items-center rounded-[10px] ${inverted ? "bg-lima" : "bg-tinta"} ${className}`}
-      aria-hidden="true"
-    >
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={inverted ? "#0B1020" : "#C6F432"} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 7V5a2 2 0 0 1 2-2h2" />
-        <path d="M17 3h2a2 2 0 0 1 2 2v2" />
-        <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
-        <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-        <path d="M9 9h.01" />
-        <path d="M15 9h.01" />
-      </svg>
-    </span>
-  );
-}
-
-export function Logo({ inverted = false, className = "" }: { inverted?: boolean; className?: string }) {
-  return (
-    <Link to="/" className={`flex items-center gap-2.5 ${className}`} aria-label="RecFace, página inicial">
-      <LogoMark inverted={inverted} />
-      <span className="font-display text-[22px] font-black">RecFace</span>
+    <Link to="/" className="flex shrink-0 items-center" aria-label="RecFace, página inicial">
+      <img
+        src={inverted ? "/brand/recface-logo-escuro.svg" : "/brand/recface-logo-claro.svg"}
+        alt="RecFace"
+        width={176}
+        height={30}
+        className={`w-auto ${className}`}
+      />
     </Link>
   );
 }

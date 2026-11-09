@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import { LogoMark, ScanFrame } from "@/components/brand";
+import { Logo, ScanFrame } from "@/components/brand";
 import { api, type RecognizeResponse } from "@/lib/api";
 import { openCamera, cameraErrorMessage } from "@/lib/camera";
 import { useFullscreen, useWakeLock } from "@/lib/kiosk";
@@ -292,10 +292,7 @@ function PlatformPage() {
       {/* Barra superior */}
       <header className="mx-auto flex max-w-[1320px] flex-wrap items-center justify-between gap-4">
         <div className="flex flex-wrap items-center gap-4">
-          <Link to="/" className="flex items-center gap-2.5" aria-label="RecFace, página inicial">
-            <LogoMark inverted />
-            <span className="font-display text-[22px] font-black">RecFace</span>
-          </Link>
+          <Logo inverted />
           <span className="inline-flex items-center gap-2 rounded-full bg-grafite px-3.5 py-2 text-sm">
             <span className={`h-2 w-2 rounded-full ${cam === "on" ? "bg-lima" : "bg-cinza"}`} />
             {cam === "on" ? "Portaria ativa" : "Portaria em espera"}
@@ -335,7 +332,7 @@ function PlatformPage() {
       {/* Título e seletor de modo */}
       <div className="mx-auto mb-7 mt-10 flex max-w-[1320px] flex-wrap items-end justify-between gap-6">
         <div>
-          <h1 className="font-display text-[clamp(40px,5vw,64px)] font-black uppercase leading-[0.95]">
+          <h1 className="font-display text-[clamp(40px,5vw,64px)] font-black leading-[0.95]">
             {isRec ? "Olhe para a câmera" : "Cadastre seu rosto"}
           </h1>
           <p className="mt-2.5 text-[17px] text-[#C5CAD6]">
@@ -474,7 +471,7 @@ function PlatformPage() {
                 </svg>
               </span>
               <div>
-                <h2 className="font-display text-[34px] font-black uppercase leading-none">Cadastro feito!</h2>
+                <h2 className="font-display text-[34px] font-black leading-none">Cadastro feito!</h2>
                 <p className="mt-2.5 text-[17px] leading-snug">{enrolled}</p>
               </div>
               <div className="flex flex-wrap gap-2.5">
@@ -625,7 +622,7 @@ function ResultCard({ result, onEnroll }: { result: Result | null; onEnroll: () 
         </svg>
       </span>
       <div>
-        <div className="font-display text-[34px] font-black uppercase leading-none">{result?.title ?? "Escaneando…"}</div>
+        <div className="font-display text-[34px] font-black leading-none">{result?.title ?? "Escaneando…"}</div>
         <p className="mt-2.5 text-[17px] leading-snug">{result?.text ?? "Posicione o rosto dentro da moldura."}</p>
       </div>
       {kind === "negado" && (

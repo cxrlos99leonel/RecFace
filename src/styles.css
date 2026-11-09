@@ -1,8 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import "@fontsource-variable/archivo/wght.css";
-@import "@fontsource-variable/archivo/wght-italic.css";
+@import "@fontsource-variable/space-grotesk/wght.css";
 @import "@fontsource-variable/inter/wght.css";
 
 @custom-variant dark (&:is(.dark *));
@@ -23,7 +22,7 @@
 
 @theme inline {
   --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Archivo Variable', 'Archivo', 'Inter Variable', ui-sans-serif, sans-serif;
+  --font-display: 'Space Grotesk Variable', 'Space Grotesk', 'Inter Variable', ui-sans-serif, sans-serif;
   --color-tinta: var(--tinta);
   --color-grafite: var(--grafite);
   --color-grafite-2: var(--grafite-2);
@@ -222,7 +221,7 @@
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
-    letter-spacing: -0.035em;
+    letter-spacing: -0.045em;
   }
 }
 

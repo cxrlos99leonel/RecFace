@@ -16,7 +16,7 @@ export function Navbar() {
   return (
     <header className="relative z-20 mx-auto max-w-[1240px] rounded-[28px] bg-white px-3 text-tinta py-2.5 shadow-[0_1px_0_rgba(11,16,32,.06)] sm:rounded-full sm:pl-5">
       <div className="flex items-center justify-between gap-3">
-        <Logo />
+        <Logo className="h-6 sm:h-8" />
         <nav aria-label="Principal" className="hidden items-center gap-1 text-[15px] font-medium lg:flex">
           {links.map((l) => (
             <a key={l.href} href={l.href} className="rounded-full px-3.5 py-2.5 transition-colors hover:bg-nevoa">
@@ -30,11 +30,11 @@ export function Navbar() {
           </Link>
           <Link
             to="/plataforma"
-            className="inline-flex items-center gap-2 rounded-full bg-tinta px-4 py-3 text-[15px] font-semibold text-lima transition-transform hover:-translate-y-0.5 sm:px-5"
+            className="group inline-flex items-center gap-2 rounded-full bg-tinta px-4 py-3 text-[15px] font-semibold text-lima transition-transform hover:-translate-y-0.5 sm:px-5"
           >
             <span className="hidden sm:inline">Acessar plataforma</span>
             <span className="sm:hidden">Plataforma</span>
-            <ArrowRight width={16} height={16} />
+            <ArrowRight width={16} height={16} className="hidden transition-transform duration-200 group-hover:translate-x-1 sm:block" />
           </Link>
           <button
             type="button"

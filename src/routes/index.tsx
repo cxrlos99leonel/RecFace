@@ -61,7 +61,7 @@ function Hero() {
             <span className="rounded-full bg-lima px-3.5 py-2 text-[13px] font-bold tracking-wide text-tinta">NOVO</span>
             <span className="text-base font-medium">Entrada por reconhecimento facial</span>
           </div>
-          <h1 className="rf-rise rf-rise-2 font-display text-[clamp(64px,10vw,152px)] font-black uppercase leading-[0.86]">
+          <h1 className="rf-rise rf-rise-2 font-display text-[clamp(64px,10vw,152px)] font-bold leading-[0.95]">
             Olhe.
             <br />
             <span className="rounded-xl bg-lima px-[0.12em] italic text-tinta">Entre.</span>
@@ -183,7 +183,7 @@ function HowItWorks() {
       <div className="mx-auto mt-[72px] grid max-w-[1240px] gap-5 px-4 sm:px-6 md:grid-cols-3">
         <article data-reveal className="flex min-h-[340px] flex-col justify-between gap-5 rounded-[28px] bg-nevoa p-8 text-tinta sm:p-10 md:col-span-2">
           <span className="self-start rounded-full bg-lima px-3 py-1.5 text-xs font-bold">Como funciona</span>
-          <h2 data-reveal className="font-display text-[clamp(40px,4.6vw,64px)] font-black uppercase leading-[0.95]">
+          <h2 data-reveal className="font-display text-[clamp(40px,4.6vw,64px)] font-black leading-[0.95]">
             Seu rosto é<br />o seu ingresso.
           </h2>
           <p className="max-w-[560px] text-lg leading-relaxed">
@@ -300,7 +300,7 @@ function Solutions() {
     <section id="solucoes" className="scroll-mt-6 px-4 py-24 sm:px-6">
       <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-14">
         <div className="min-w-0 flex-[1_1_460px]">
-          <h2 data-reveal className="font-display text-[clamp(40px,4.8vw,68px)] font-black uppercase leading-[0.95]">
+          <h2 data-reveal className="font-display text-[clamp(40px,4.8vw,68px)] font-black leading-[0.95]">
             Tudo que seu
             <br />
             evento <span className="rounded-[10px] bg-tinta px-[0.12em] text-lima">precisa.</span>
@@ -476,7 +476,7 @@ function Privacy() {
       <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-12 rounded-[40px] bg-tinta p-[clamp(28px,6vw,72px)] text-nevoa">
         <div className="min-w-0 flex-[1_1_420px]">
           <span className="text-[13px] font-bold uppercase tracking-[0.12em] text-lima">Privacidade e LGPD</span>
-          <h2 data-reveal className="mb-5 mt-4 font-display text-[clamp(40px,5.6vw,84px)] font-black uppercase leading-[0.92]">
+          <h2 data-reveal className="mb-5 mt-4 font-display text-[clamp(40px,5.6vw,84px)] font-black leading-[0.95]">
             Seu rosto,
             <br />
             <span className="text-lima">suas regras.</span>
@@ -567,7 +567,7 @@ function FinalCta() {
   return (
     <section id="contato" className="px-4 sm:px-6">
       <div data-reveal className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-8 rounded-[40px] bg-lima p-[clamp(32px,7vw,88px)]">
-        <h2 data-reveal className="font-display text-[clamp(40px,5.6vw,84px)] font-black uppercase leading-[0.92]">
+        <h2 data-reveal className="font-display text-[clamp(40px,5.6vw,84px)] font-black leading-[0.95]">
           Pronto para
           <br />
           acabar com a fila?

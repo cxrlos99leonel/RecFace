@@ -1,7 +1,7 @@
 import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { toast } from "sonner";
-import { LogoMark } from "@/components/brand";
+import { Logo } from "@/components/brand";
 import { api, ApiError } from "@/lib/api";
 
 export const Route = createFileRoute("/admin")({
@@ -73,10 +73,7 @@ function AdminLayout() {
   return (
     <div className="flex min-h-screen flex-wrap items-start gap-4 bg-nevoa p-3 text-tinta sm:p-4">
       <aside className="flex w-full flex-col gap-6 rounded-[28px] bg-tinta p-5 text-nevoa lg:sticky lg:top-4 lg:min-h-[calc(100vh-2rem)] lg:w-[240px]">
-        <Link to="/" className="flex items-center gap-2.5" aria-label="RecFace, página inicial">
-          <LogoMark inverted />
-          <span className="font-display text-xl font-black">RecFace</span>
-        </Link>
+        <Logo inverted className="h-7" />
         <nav aria-label="Painel" className="flex flex-wrap gap-1 text-[15px] lg:flex-col">
           {NAV.map((n) => (
             <Link

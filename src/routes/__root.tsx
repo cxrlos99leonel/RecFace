@@ -11,7 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import archivoLatin from "@fontsource-variable/archivo/files/archivo-latin-wght-normal.woff2?url";
+import displayLatin from "@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2?url";
 import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 import { reportError } from "../lib/error-reporting";
 import { Toaster } from "@/components/ui/sonner";
@@ -99,7 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary" },
     ],
     links: [
-      { rel: "preload", href: archivoLatin, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "preload", href: displayLatin, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
       { rel: "preload", href: interLatin, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
       { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/icons/apple-touch-icon.png" },
@@ -107,10 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      {
-        rel: "icon",
-        href: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230B1020'/%3E%3Cg fill='none' stroke='%23C6F432' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M5 9V7a2 2 0 0 1 2-2h2M15 5h2a2 2 0 0 1 2 2v2M19 15v2a2 2 0 0 1-2 2h-2M9 19H7a2 2 0 0 1-2-2v-2M9.5 14s1 1.3 2.5 1.3 2.5-1.3 2.5-1.3'/%3E%3C/g%3E%3C/svg%3E",
-      },
+      { rel: "icon", href: "/brand/recface-icone.svg", type: "image/svg+xml" },
     ],
   }),
   shellComponent: RootShell,

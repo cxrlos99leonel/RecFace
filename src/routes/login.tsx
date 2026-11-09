@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { LogoMark } from "@/components/brand";
+import { Logo } from "@/components/brand";
 import { api } from "@/lib/api";
 
 export const Route = createFileRoute("/login")({
@@ -63,12 +63,11 @@ function LoginPage() {
           <polygon points="600,120 600,800 120,800 380,420 260,440" fill="#1C2333" />
           <polygon points="600,560 600,640 470,800 400,800" fill="#C6F432" />
         </svg>
-        <Link to="/" className="relative flex items-center gap-2.5" aria-label="RecFace, página inicial">
-          <LogoMark inverted />
-          <span className="font-display text-[22px] font-black">RecFace</span>
-        </Link>
         <div className="relative">
-          <h1 className="font-display text-[clamp(52px,7vw,104px)] font-black uppercase leading-[0.88]">
+          <Logo inverted className="h-[34px]" />
+        </div>
+        <div className="relative">
+          <h1 className="font-display text-[clamp(52px,7vw,104px)] font-bold leading-[0.95]">
             Área do
             <br />
             <span className="text-lima">admin.</span>

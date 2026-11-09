@@ -72,7 +72,12 @@ Endereços antigos (`/dashboard`, `/enroll`, `/reports`, `/settings`) redirecion
 | Borda / Névoa | `#E3E7DF` / `#F4F6F1` | Bordas / fundo claro |
 | Âmbar / Vermelho | `#FFB020` / `#D62839` | Liberação manual / acesso negado |
 
-Tipografia: **Archivo** (títulos, pesada) e **Inter** (texto). Tokens em `src/styles.css`
+Logo: símbolo de foco + "recface" em minúsculas, na Space Grotesk, com o "f" e o último "e" em blocos
+digitais (definido na conversa "Logo RecFace com IA"). Arquivos em `public/brand/`: `recface-logo-claro.svg`
+(fundos claros), `recface-logo-escuro.svg` (fundos escuros), `recface-simbolo*.svg` e `recface-icone.svg`
+(favicon). Os ícones do app instalável usam o mesmo símbolo.
+
+Tipografia: **Space Grotesk** (títulos, sem caixa alta, espaçamento -0,045em) e **Inter** (texto). Tokens em `src/styles.css`
 (classes `bg-tinta`, `text-lima`, `ring-scan`, `bg-nevoa`, etc.).
 
 ---
@@ -99,7 +104,7 @@ agora eles nunca saem do servidor.
 | Camada | Tecnologia |
 |---|---|
 | Interface | React 19, TanStack Start / Router, Tailwind CSS 4, shadcn/ui (Radix), TypeScript |
-| Fontes | Archivo e Inter hospedadas no próprio site (Fontsource), com preload |
+| Fontes | Space Grotesk e Inter hospedadas no próprio site (Fontsource), com preload |
 | Animações | CSS puro (hover, revelação ao rolar, moldura de leitura), respeitando `prefers-reduced-motion` |
 | Build | Vite 7 |
 | Reconhecimento facial | @vladmandic/face-api (sobre TensorFlow.js), rodando num Web Worker |
