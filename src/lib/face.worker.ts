@@ -38,7 +38,7 @@ let ready: Promise<string> | null = null;
 
 function init(modelsUrl: string): Promise<string> {
   ready ??= (async () => {
-    await faceapi.tf.ready();
+    await (faceapi.tf as unknown as { ready: () => Promise<void> }).ready();
     await Promise.all([
       faceapi.nets.ssdMobilenetv1.loadFromUri(modelsUrl),
       faceapi.nets.faceLandmark68Net.loadFromUri(modelsUrl),
@@ -51,7 +51,7 @@ function init(modelsUrl: string): Promise<string> {
     await faceapi.nets.ssdMobilenetv1.locateFaces(input);
     await faceapi.nets.faceLandmark68Net.detectLandmarks(input);
     await faceapi.nets.faceRecognitionNet.computeFaceDescriptor(input);
-    return faceapi.tf.getBackend();
+    return (faceapi.tf as unknown as { getBackend: () => string }).getBackend();
   })().catch((e) => {
     ready = null;
     throw e;

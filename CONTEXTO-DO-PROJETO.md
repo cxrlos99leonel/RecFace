@@ -247,4 +247,7 @@ O login atual (`user00adm`) é só de exemplo: troque antes de um uso real.
 - **Banco gratuito:** o plano Free do Upstash pode desativar bancos sem uso por longos períodos.
 - **Câmera:** exige HTTPS e permissão do navegador; não funciona se outro programa estiver usando a webcam.
 - **Precisão:** iluminação ruim, rosto de perfil ou óculos escuros reduzem a precisão.
+- **Versão do TanStack Start fixada:** `@tanstack/react-start` 1.168.61 (com a correção de XSS
+  CVE-2026-102989, exigida pela Vercel). A partir da 1.169 o pacote exige Vite 8; migrar para Vite 8 é
+  uma evolução futura. Não troque para `^` sem testar o build.
 - **Eventos múltiplos:** a v2 trata um único local/evento; cadastro de vários eventos fica como evolução.

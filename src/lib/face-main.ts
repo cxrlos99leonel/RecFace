@@ -27,7 +27,7 @@ export function loadModelsMain(): Promise<string> {
     await api.nets.ssdMobilenetv1.locateFaces(canvas);
     await api.nets.faceLandmark68Net.detectLandmarks(canvas);
     await api.nets.faceRecognitionNet.computeFaceDescriptor(canvas);
-    return api.tf.getBackend();
+    return (api.tf as unknown as { getBackend: () => string }).getBackend();
   })().catch((e) => {
     loading = null;
     throw e;
