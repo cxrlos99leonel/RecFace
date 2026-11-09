@@ -3,7 +3,7 @@
 Controle de acesso por **reconhecimento facial** para eventos, cinemas e empresas.
 Projeto do TAI 3 (PUC Minas).
 
-**No ar:** https://presenca-facial-one.vercel.app
+**No ar:** https://recface-umber.vercel.app
 
 | Página | Endereço |
 |---|---|

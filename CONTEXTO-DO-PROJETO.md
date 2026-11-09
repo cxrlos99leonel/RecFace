@@ -216,9 +216,9 @@ bun run build        # gera o build e aplica o ajuste do scripts/
 bun run test:e2e     # testes de interface e acessibilidade (depois do build)
 ```
 
-**Publicação:** o projeto `presenca-facial` da Vercel está ligado ao repositório
+**Publicação:** o projeto `recface` da Vercel está ligado ao repositório
 `github.com/cxrlos99leonel/RecFace`. Cada push na branch `main` publica automaticamente em
-`presenca-facial-one.vercel.app`.
+`recface-umber.vercel.app`. (O projeto antigo `presenca-facial` não recebe mais atualizações.)
 
 Para o teste de reconhecimento com câmera simulada, coloque dois vídeos `.y4m` com rostos diferentes em
 `tests/fixtures/rosto-a.y4m` e `rosto-b.y4m` (comando no topo de `tests/e2e/reconhecimento.spec.ts`).
