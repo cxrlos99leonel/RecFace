@@ -8,12 +8,14 @@ import {
   isValidDescriptor,
   loadParticipants,
 } from "../../lib/participants";
+import { RATE_LIMITS, enforceRateLimit } from "../../lib/rate-limit";
 
 /**
  * Cadastro feito na própria portaria. Exige o aceite do termo (LGPD).
  * A foto não chega ao servidor: só o vetor de 128 números.
  */
 export default defineEventHandler(async (event) => {
+  await enforceRateLimit(event, RATE_LIMITS.enrollment);
   const body = await readBody<Record<string, unknown>>(event);
   const name = String(body?.name ?? "").trim().replace(/\s+/g, " ");
   const document = String(body?.document ?? body?.registration_id ?? "").trim();
@@ -38,7 +40,12 @@ export default defineEventHandler(async (event) => {
   const participants = await loadParticipants(true);
   const normalizedDoc = document.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
   if (participants.some((p) => String(p.registration_id).replace(/[^A-Za-z0-9]/g, "").toUpperCase() === normalizedDoc)) {
-    throw createError({ statusCode: 409, message: "Este documento já está cadastrado." });
+    // Mensagem neutra: não confirma a terceiros se um documento está na base.
+    throw createError({
+      statusCode: 409,
+      message:
+        "Não foi possível concluir o cadastro com estes dados. Se você já se cadastrou, use a opção Reconhecer rosto; se precisar de ajuda, procure a equipe da entrada.",
+    });
   }
   const sameFace = findBestMatch(face_descriptor, participants);
   if (sameFace && sameFace.distance <= DUPLICATE_FACE_THRESHOLD) {

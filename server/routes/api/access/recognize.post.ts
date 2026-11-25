@@ -9,6 +9,7 @@ import {
   registerEntry,
   similarityFromDistance,
 } from "../../../lib/participants";
+import { RATE_LIMITS, enforceRateLimit } from "../../../lib/rate-limit";
 
 /**
  * Portaria: recebe o vetor facial capturado pela câmera, compara com os
@@ -16,6 +17,7 @@ import {
  * a tentativa de acesso.
  */
 export default defineEventHandler(async (event) => {
+  await enforceRateLimit(event, RATE_LIMITS.recognize);
   const body = await readBody<{ descriptor?: unknown }>(event);
   const descriptor = body?.descriptor;
   if (!isValidDescriptor(descriptor)) {

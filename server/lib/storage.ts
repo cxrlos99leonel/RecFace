@@ -144,6 +144,24 @@ export async function kvLrange(key: string, start: number, stop: number): Promis
   return values.map((v) => (typeof v === "string" ? v : JSON.stringify(v)));
 }
 
+/**
+ * Incrementa um contador e define o prazo de expiração na primeira chamada.
+ * Retorna o novo valor. Usado pelo limite de tentativas (rate-limit.ts).
+ */
+export async function kvIncrWithExpiry(key: string, exSeconds: number): Promise<number> {
+  if (useMemory()) {
+    const next = ((mem.get(key) as number | undefined) ?? 0) + 1;
+    if (next === 1) memSet(key, next, exSeconds);
+    else mem.set(key, next);
+    return next;
+  }
+  return withKv(async (kv) => {
+    const value = await kv.incr(key);
+    if (value === 1) await kv.expire(key, exSeconds);
+    return value;
+  });
+}
+
 export async function kvExists(key: string): Promise<boolean> {
   if (useMemory()) return mem.has(key);
   return withKv(async (kv) => (await kv.exists(key)) > 0);

@@ -1,7 +1,9 @@
 import { defineEventHandler, readBody, createError } from "h3";
 import { checkPassword, createSession, getAdminCredentials } from "../../../lib/auth";
+import { RATE_LIMITS, enforceRateLimit } from "../../../lib/rate-limit";
 
 export default defineEventHandler(async (event) => {
+  await enforceRateLimit(event, RATE_LIMITS.login);
   if (!getAdminCredentials()) {
     throw createError({
       statusCode: 503,

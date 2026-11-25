@@ -25,7 +25,13 @@ export function useAdminErrorHandler() {
 
 /** Baixa um CSV (com BOM, para o Excel abrir os acentos corretamente). */
 export function downloadCsv(filename: string, header: string[], rows: (string | number)[][]) {
-  const esc = (v: string | number) => `"${String(v).replace(/"/g, '""')}"`;
+  // Textos que começam com = + - @ (ou tab/enter) viram fórmula no Excel. Como o nome
+  // é digitado por qualquer pessoa na portaria, um apóstrofo os mantém como texto.
+  const esc = (v: string | number) => {
+    let s = String(v);
+    if (typeof v === "string" && /^[=+\-@\t\r]/.test(s)) s = `'${s}`;
+    return `"${s.replace(/"/g, '""')}"`;
+  };
   const body = [header.map(esc).join(";"), ...rows.map((r) => r.map(esc).join(";"))].join("\n");
   const blob = new Blob(["﻿" + body], { type: "text/csv;charset=utf-8" });
   const url = URL.createObjectURL(blob);

@@ -130,6 +130,7 @@ e passou por duas versões:
 | **Terminal de entrada** | Modo quiosque/PWA: app instalável, tela cheia e *Wake Lock* para a tela não apagar. |
 | **Precisão x falsos positivos** | Mesma pessoa se a distância euclidiana entre vetores for ≤ 0,5; cadastro bloqueado se houver alguém a ≤ 0,42. O vetor cadastrado é a média de 5 capturas. |
 | **Segurança do painel** | Sessão em cookie `httpOnly` assinado com HMAC-SHA256, válida por 8 horas; senha comparada em tempo constante; login desativado em produção sem credenciais configuradas. |
+| **Proteção contra abuso** | Limite de tentativas por IP (guardado com hash no Redis) no login, no cadastro e no reconhecimento; cabeçalhos de segurança (sem embutir o site, câmera liberada só no próprio site, HSTS); exportação CSV neutraliza fórmulas de planilha; mensagem de documento duplicado não revela quem está cadastrado. |
 | **Qualidade e acessibilidade** | Testes *end-to-end* com Playwright em desktop e celular, incluindo verificação WCAG 2.1 AA com axe, respeito a `prefers-reduced-motion` e um teste de reconhecimento com câmera simulada. |
 
 ---
@@ -249,7 +250,6 @@ Detalhes completos de arquitetura, regras de negócio e histórico em
 
 - [ ] **Prova de vivacidade** (*liveness*): hoje uma foto do rosto diante da câmera pode ser aceita
 - [ ] **Múltiplos eventos** por organizador (a versão atual trata um único local/evento)
-- [ ] **Limite de requisições** (*rate limiting*) nas rotas públicas
 - [ ] **Migração para Vite 8** e versões mais novas do TanStack Start
 - [ ] Portaria aberta por design: em uso real, o terminal deve ficar sob supervisão da equipe
 - [ ] Precisão cai com iluminação ruim, rosto de perfil ou óculos escuros

@@ -21,6 +21,19 @@ const config = {
   framework: { name: "nitro", version: "3.0.260429-beta" },
   overrides: {},
   routes: [
+    // Cabeçalhos de segurança também nos arquivos estáticos (o servidor aplica os
+    // mesmos em páginas e API via server/middleware/security-headers.ts).
+    {
+      src: "/(.*)",
+      headers: {
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "camera=(self), microphone=(), geolocation=(), payment=(), usb=()",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+      },
+      continue: true,
+    },
     { headers: { "cache-control": "public, max-age=31536000, immutable" }, src: "/assets/(.*)" },
     { handle: "filesystem" },
     { src: "/(.*)", dest: "/__server" },

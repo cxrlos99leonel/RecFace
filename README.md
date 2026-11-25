@@ -131,6 +131,7 @@ The project started as an Integrated Academic Project (TAI) in the **Computer Sc
 | **Entrance hardware** | Kiosk mode/PWA: installable app, full screen and *Wake Lock* so the screen never sleeps. |
 | **Accuracy vs. false positives** | Same person if the Euclidean distance between vectors is ≤ 0.5; enrollment is blocked if someone is within ≤ 0.42. The stored vector is the average of 5 captures. |
 | **Dashboard security** | Session in an `httpOnly` cookie signed with HMAC-SHA256, valid for 8 hours; constant-time password comparison; login is disabled in production when no credentials are configured. |
+| **Abuse protection** | Per-IP rate limiting (stored hashed in Redis) on login, enrollment and recognition; security headers (no framing, camera allowed only on the site itself, HSTS); CSV exports neutralize spreadsheet formulas; duplicate-document errors don't reveal who is enrolled. |
 | **Quality and accessibility** | End-to-end tests with Playwright on desktop and mobile, including WCAG 2.1 AA checks with axe, `prefers-reduced-motion` support and a recognition test with a simulated camera. |
 
 ---
@@ -250,7 +251,6 @@ Full architecture, business rules and history (in Portuguese) in
 
 - [ ] **Liveness detection**: today, a photo of a face held up to the camera may be accepted
 - [ ] **Multiple events** per organizer (the current version handles a single venue/event)
-- [ ] **Rate limiting** on the public endpoints
 - [ ] **Upgrade to Vite 8** and newer TanStack Start releases
 - [ ] The entrance terminal is open by design: in real use, it must be supervised by staff
 - [ ] Accuracy drops with poor lighting, side profiles or sunglasses
