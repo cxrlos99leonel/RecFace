@@ -37,3 +37,15 @@ dist-ssr
 test-results
 playwright-report
 tests/fixtures/*.y4m
+
+# Segredos e configurações locais (nunca versionar)
+.env
+.env.*
+!.env.example
+.vercel
+*.pem
+*.key
+
+# Dados biométricos usados nos testes (vídeos/fotos de rostos reais)
+tests/fixtures/*
+!tests/fixtures/.gitkeep

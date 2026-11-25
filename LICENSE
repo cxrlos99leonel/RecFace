@@ -1,0 +1,18 @@
+Copyright (c) 2026 RecFace team
+Carlos Eduardo Divino Souza Leonel, Henrique Rodrigues Martins, João Vitor Garçon dos Reis,
+Jonas Henrique Teixeira and Luis Augusto de Oliveira Bordin.
+
+All rights reserved.
+
+This repository is published for portfolio and academic evaluation purposes only
+(Integrated Academic Project, Computer Science, PUC Minas).
+
+You may view and read the source code on GitHub. No permission is granted to copy,
+modify, distribute, sublicense, deploy or use this software, its design or its brand
+assets, in whole or in part, for any purpose, without prior written permission from
+the copyright holders.
+
+The face recognition model weights in public/models/ are third-party files distributed
+under their own licenses (see https://github.com/vladmandic/face-api).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.

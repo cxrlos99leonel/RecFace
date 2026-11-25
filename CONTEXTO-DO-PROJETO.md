@@ -3,7 +3,7 @@
 Controle de acesso por reconhecimento facial para eventos, festas, cinemas e empresas.
 Trabalho Acadêmico Integrado III (TAI 3), Ciência da Computação, PUC Minas.
 
-**Site publicado:** https://presenca-facial-one.vercel.app
+**Site publicado:** https://recface-umber.vercel.app
 
 > Esta é a versão 2 do sistema. A versão 1 (TAI 2) controlava presença de alunos em laboratórios;
 > a versão 2 adapta o mesmo motor de reconhecimento à proposta da empresa RecFace.
@@ -73,7 +73,7 @@ Endereços antigos (`/dashboard`, `/enroll`, `/reports`, `/settings`) redirecion
 | Âmbar / Vermelho | `#FFB020` / `#D62839` | Liberação manual / acesso negado |
 
 Logo: símbolo de foco + "recface" em minúsculas, na Space Grotesk, com o "f" e o último "e" em blocos
-digitais (definido na conversa "Logo RecFace com IA"). Arquivos em `public/brand/`: `recface-logo-claro.svg`
+digitais. Arquivos em `public/brand/`: `recface-logo-claro.svg`
 (fundos claros), `recface-logo-escuro.svg` (fundos escuros), `recface-simbolo*.svg` e `recface-icone.svg`
 (favicon). Os ícones do app instalável usam o mesmo símbolo.
 
@@ -223,14 +223,14 @@ bun run test:e2e     # testes de interface e acessibilidade (depois do build)
 
 **Publicação:** o projeto `recface` da Vercel está ligado ao repositório
 `github.com/cxrlos99leonel/RecFace`. Cada push na branch `main` publica automaticamente em
-`recface-umber.vercel.app`. (O projeto antigo `presenca-facial` não recebe mais atualizações.)
+`recface-umber.vercel.app`.
 
 Para o teste de reconhecimento com câmera simulada, coloque dois vídeos `.y4m` com rostos diferentes em
 `tests/fixtures/rosto-a.y4m` e `rosto-b.y4m` (comando no topo de `tests/e2e/reconhecimento.spec.ts`).
 Sem eles, o teste é pulado.
 
 Variáveis na Vercel: `KV_REST_API_URL`, `KV_REST_API_TOKEN` (Upstash) e **`ADMIN_EMAIL`, `ADMIN_PASSWORD`**.
-O login atual (`user00adm`) é só de exemplo: troque antes de um uso real.
+Nunca publique credenciais reais neste repositório: elas ficam apenas nas variáveis de ambiente da Vercel.
 
 ---
 

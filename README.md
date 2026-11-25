@@ -1,3 +1,8 @@
+<p align="right">
+  <a href="README.md"><img src="https://img.shields.io/badge/lang-English-C6F432?style=flat-square&labelColor=0B1020" alt="Read in English"></a>
+  <a href="README.pt-BR.md"><img src="https://img.shields.io/badge/idioma-Portugu%C3%AAs-0B1020?style=flat-square" alt="Ler em português"></a>
+</p>
+
 <div align="center">
 
 <picture>
@@ -5,12 +10,12 @@
   <img src="public/brand/recface-logo-claro.svg" alt="RecFace" height="64">
 </picture>
 
-### Olhe. Entre. Curta.
+### Look. Walk in. Enjoy.
 
-**Controle de acesso por reconhecimento facial, direto no navegador.**
-Sem fila, sem ingresso no celular e sem guardar a foto de ninguém.
+**Face recognition access control that runs right in the browser.**
+No queues, no tickets on your phone, and no one's photo is ever stored.
 
-[![Site no ar](https://img.shields.io/badge/site-recface--umber.vercel.app-C6F432?style=for-the-badge&labelColor=0B1020)](https://recface-umber.vercel.app)
+[![Live site](https://img.shields.io/badge/live-recface--umber.vercel.app-C6F432?style=for-the-badge&labelColor=0B1020)](https://recface-umber.vercel.app)
 
 ![React 19](https://img.shields.io/badge/React-19-0B1020?logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-0B1020?logo=typescript&logoColor=3178C6)
@@ -19,174 +24,176 @@ Sem fila, sem ingresso no celular e sem guardar a foto de ninguém.
 ![TensorFlow.js](https://img.shields.io/badge/face--api-TensorFlow.js-0B1020?logo=tensorflow&logoColor=FF6F00)
 ![Redis](https://img.shields.io/badge/Upstash-Redis-0B1020?logo=redis&logoColor=FF4438)
 ![Vercel](https://img.shields.io/badge/deploy-Vercel-0B1020?logo=vercel&logoColor=white)
-![Playwright](https://img.shields.io/badge/testes-Playwright%20%2B%20axe-0B1020?logo=playwright&logoColor=2EAD33)
+![Playwright](https://img.shields.io/badge/tests-Playwright%20%2B%20axe-0B1020?logo=playwright&logoColor=2EAD33)
 
 </div>
 
 <p align="center">
-  <img src="docs/prototipo/site-hero.png" alt="Página inicial da RecFace" width="100%">
+  <img src="docs/prototipo/site-hero.png" alt="RecFace home page" width="100%">
 </p>
 
 ---
 
-## Sumário
+## Contents
 
-- [Sobre o projeto](#sobre-o-projeto)
-- [Telas](#telas)
-- [Funcionalidades](#funcionalidades)
-- [Destaques técnicos](#destaques-técnicos)
-- [Arquitetura](#arquitetura)
-- [Stack](#stack)
-- [Como rodar](#como-rodar)
-- [Estrutura do projeto](#estrutura-do-projeto)
-- [Limitações e próximos passos](#limitações-e-próximos-passos)
-- [Equipe](#equipe)
+- [About](#about)
+- [Screens](#screens)
+- [Features](#features)
+- [Technical highlights](#technical-highlights)
+- [Architecture](#architecture)
+- [Tech stack](#tech-stack)
+- [Running locally](#running-locally)
+- [Project structure](#project-structure)
+- [Limitations and next steps](#limitations-and-next-steps)
+- [Team](#team)
+- [License](#license)
 
 ---
 
-## Sobre o projeto
+## About
 
-A **RecFace** é uma plataforma de controle de acesso para **eventos, festas, cinemas e empresas**.
-O participante cadastra o rosto uma única vez; na entrada, basta olhar para a câmera. O sistema reconhece a
-pessoa em segundos, libera o acesso e registra data e horário. O organizador acompanha tudo em um painel
-administrativo ao vivo.
+**RecFace** is an access control platform for **events, parties, movie theaters and companies**.
+Attendees enroll their face once; at the entrance, they just look at the camera. The system recognizes them
+in seconds, grants access and logs the date and time. Organizers follow everything on a live admin dashboard.
 
-O projeto nasceu como Trabalho Acadêmico Integrado (TAI) do curso de **Ciência da Computação da PUC Minas**
-e passou por duas versões:
+The project started as an Integrated Academic Project (TAI) in the **Computer Science program at PUC Minas**
+(Brazil) and went through two major versions:
 
-| Versão | Contexto | O que mudou |
+| Version | Context | What changed |
 |---|---|---|
-| **v1** (TAI 2) | Presença de alunos em laboratórios | Motor de reconhecimento no navegador, cadastro, painel e relatórios |
-| **v2** (TAI 3) | Empresa RecFace: acesso a eventos | Site institucional, portaria com cadastro e reconhecimento, login de administrador, comparação facial no servidor, consentimento LGPD, nova identidade visual |
-| **v2.1** | Desempenho e qualidade | Reconhecimento em Web Worker, modo quiosque (PWA), cache dos modelos, testes automáticos de interface e acessibilidade |
+| **v1** (TAI 2) | Student attendance in computer labs | In-browser recognition engine, enrollment, dashboard and reports |
+| **v2** (TAI 3) | RecFace company: event access | Marketing site, entrance terminal with enrollment and recognition, admin login, server-side face matching, LGPD consent, new visual identity |
+| **v2.1** | Performance and quality | Recognition in a Web Worker, kiosk mode (PWA), model caching, automated UI and accessibility tests |
 
-> **Privacidade por padrão:** a foto é analisada no próprio navegador e descartada. Só um vetor de 128 números,
-> que não permite reconstruir a imagem do rosto, é enviado ao servidor.
+> **Privacy by default:** the photo is analyzed in the browser and discarded. Only a 128-number vector, which
+> cannot be used to rebuild the face image, is sent to the server.
+
+> **Note:** the product UI is in Brazilian Portuguese, since it was built for the Brazilian market.
 
 ---
 
-## Telas
+## Screens
 
-> Imagens do protótipo de alta fidelidade que guiou a implementação (os dados exibidos são ilustrativos).
+> Images from the high-fidelity prototype that guided the implementation (the data shown is illustrative).
 
-### Portaria: reconhecimento e cadastro
+### Entrance terminal: recognition and enrollment
 
-| Acesso liberado | Acesso negado |
+| Access granted | Access denied |
 |---|---|
-| ![Portaria com acesso liberado](docs/prototipo/portaria-acesso-liberado.png) | ![Portaria com acesso negado](docs/prototipo/portaria-acesso-negado.png) |
+| ![Entrance terminal, access granted](docs/prototipo/portaria-acesso-liberado.png) | ![Entrance terminal, access denied](docs/prototipo/portaria-acesso-negado.png) |
 
-| Cadastro do rosto (5 fotos + termo LGPD) |
+| Face enrollment (5 photos + LGPD consent) |
 |---|
-| ![Cadastro de participante](docs/prototipo/portaria-cadastro.png) |
+| ![Attendee enrollment](docs/prototipo/portaria-cadastro.png) |
 
-### Área do administrador
+### Admin area
 
-| Login | Painel |
+| Login | Dashboard |
 |---|---|
-| ![Login do administrador](docs/prototipo/admin-login.png) | ![Painel do administrador](docs/prototipo/admin-painel.png) |
+| ![Admin login](docs/prototipo/admin-login.png) | ![Admin dashboard](docs/prototipo/admin-painel.png) |
 
 <details>
-<summary><b>Ver a página inicial completa</b></summary>
+<summary><b>See the full home page</b></summary>
 <br>
-<img src="docs/prototipo/site-pagina-inicial.png" alt="Página inicial completa da RecFace">
+<img src="docs/prototipo/site-pagina-inicial.png" alt="Full RecFace home page">
 </details>
 
 ---
 
-## Funcionalidades
+## Features
 
-**Para o participante**
-- Cadastro guiado em menos de um minuto: 5 fotos do rosto, cada uma validada na hora, e aceite do termo da LGPD
-- Reconhecimento na portaria em segundos, com resposta visual clara: **liberado**, **negado** ou **já entrou hoje**
-- Se o rosto não for reconhecido, a tela oferece o cadastro na hora
+**For attendees**
+- Guided enrollment in under a minute: 5 face photos, each validated on the spot, plus LGPD (Brazil's data protection law) consent
+- Recognition at the entrance in seconds, with clear visual feedback: **granted**, **denied** or **already entered today**
+- If the face is not recognized, the screen offers enrollment right away
 
-**Para o organizador**
-- Painel com entradas do dia atualizadas a cada 10 segundos e gráfico de entradas por hora
-- Registro de **todas** as tentativas (liberadas, negadas, duplicadas e liberações manuais)
-- Gestão de participantes: busca, liberação manual quando o reconhecimento falha e exclusão com apagamento do histórico
-- Relatórios por período (7 dias, 30 dias ou datas escolhidas) com exportação em CSV
+**For organizers**
+- Dashboard with today's entries refreshed every 10 seconds and an entries-per-hour chart
+- Log of **every** attempt (granted, denied, duplicate and manual check-ins)
+- Attendee management: search, manual check-in when recognition fails, and deletion that also erases the history
+- Reports by period (7 days, 30 days or a custom range) with CSV export
 
-**Regras de negócio**
-- Uma entrada por pessoa por dia (fuso de Brasília)
-- Cadastro duplicado é recusado por documento **ou** por semelhança facial com alguém já cadastrado
+**Business rules**
+- One entry per person per day (Brasília time zone)
+- Duplicate enrollment is rejected by document number **or** by facial similarity to someone already enrolled
 
 ---
 
-## Destaques técnicos
+## Technical highlights
 
-| Desafio | Solução |
+| Challenge | Solution |
 |---|---|
-| **Privacidade dos dados biométricos** | Detecção e extração do vetor facial (128 dimensões) acontecem no navegador; nenhuma foto sai do aparelho nem é armazenada. |
-| **Não expor a base de rostos** | Na v1 a página baixava os vetores de todos os cadastrados. Na v2 a comparação foi movida para o servidor (`POST /api/access/recognize`) e os vetores nunca saem dele. |
-| **Interface travando durante a análise** | O reconhecimento roda em um **Web Worker** com `OffscreenCanvas`, fora da thread da interface. Cada quadro é reduzido para 640 px antes da análise. Há um *fallback* na página para navegadores sem suporte. |
-| **Primeira análise lenta** | O aquecimento da GPU (~12 s) é feito durante o carregamento da página, antes do primeiro rosto aparecer. |
-| **Modelos pesados (~12 MB)** | *Service worker* guarda os modelos e o build em cache; da segunda visita em diante a portaria abre sem baixar tudo de novo. |
-| **Terminal de entrada** | Modo quiosque/PWA: app instalável, tela cheia e *Wake Lock* para a tela não apagar. |
-| **Precisão x falsos positivos** | Mesma pessoa se a distância euclidiana entre vetores for ≤ 0,5; cadastro bloqueado se houver alguém a ≤ 0,42. O vetor cadastrado é a média de 5 capturas. |
-| **Segurança do painel** | Sessão em cookie `httpOnly` assinado com HMAC-SHA256, válida por 8 horas; login desativado em produção sem credenciais configuradas. |
-| **Qualidade e acessibilidade** | Testes *end-to-end* com Playwright em desktop e celular, incluindo verificação WCAG 2.1 AA com axe, respeito a `prefers-reduced-motion` e um teste de reconhecimento com câmera simulada. |
+| **Biometric data privacy** | Face detection and vector extraction (128 dimensions) happen in the browser; no photo ever leaves the device or gets stored. |
+| **Not exposing the face database** | In v1 the page downloaded every enrolled vector. In v2 matching moved to the server (`POST /api/access/recognize`), so vectors never leave it. |
+| **UI freezing during analysis** | Recognition runs in a **Web Worker** with `OffscreenCanvas`, off the UI thread. Each frame is downscaled to 640 px first. There is an in-page fallback for browsers without support. |
+| **Slow first inference** | GPU warm-up (~12 s) happens while the page loads, before the first face shows up. |
+| **Heavy models (~12 MB)** | A service worker caches the models and the build; from the second visit on, the terminal opens without downloading everything again. |
+| **Entrance hardware** | Kiosk mode/PWA: installable app, full screen and *Wake Lock* so the screen never sleeps. |
+| **Accuracy vs. false positives** | Same person if the Euclidean distance between vectors is ≤ 0.5; enrollment is blocked if someone is within ≤ 0.42. The stored vector is the average of 5 captures. |
+| **Dashboard security** | Session in an `httpOnly` cookie signed with HMAC-SHA256, valid for 8 hours; constant-time password comparison; login is disabled in production when no credentials are configured. |
+| **Quality and accessibility** | End-to-end tests with Playwright on desktop and mobile, including WCAG 2.1 AA checks with axe, `prefers-reduced-motion` support and a recognition test with a simulated camera. |
 
 ---
 
-## Arquitetura
+## Architecture
 
 ```mermaid
 flowchart LR
-    subgraph Navegador["Navegador (portaria)"]
-        CAM[Câmera] --> W["Web Worker<br/>face-api / TensorFlow.js"]
-        W -->|"vetor de 128 números<br/>(a foto é descartada)"| UI[Interface React]
+    subgraph Browser["Browser (entrance terminal)"]
+        CAM[Camera] --> W["Web Worker<br/>face-api / TensorFlow.js"]
+        W -->|"128-number vector<br/>(photo is discarded)"| UI[React UI]
     end
 
     UI -->|"POST /api/access/recognize<br/>POST /api/enrollment"| API
 
     subgraph Vercel
-        API["API Nitro (Node.js)<br/>compara vetores, aplica regras<br/>e registra o acesso"]
+        API["Nitro API (Node.js)<br/>matches vectors, applies rules<br/>and logs access"]
     end
 
-    API <--> DB[("Upstash Redis<br/>participantes, vetores<br/>e registro de acessos")]
+    API <--> DB[("Upstash Redis<br/>attendees, vectors<br/>and access log")]
 
-    ADM[Painel do administrador] -->|"cookie de sessão assinado"| API
+    ADM[Admin dashboard] -->|"signed session cookie"| API
 ```
 
-**Modelos de reconhecimento** (carregados de `public/models/`):
-SSD MobileNet v1 (detecção) → Face Landmark 68 (pontos do rosto) → Face Recognition Net (vetor de 128 dimensões).
+**Recognition models** (loaded from `public/models/`):
+SSD MobileNet v1 (detection) → Face Landmark 68 (facial landmarks) → Face Recognition Net (128-dimension vector).
 
 <details>
-<summary><b>Rotas da API</b></summary>
+<summary><b>API routes</b></summary>
 
-| Método | Rota | Acesso | Função |
+| Method | Route | Access | Purpose |
 |---|---|---|---|
-| GET | `/api/health` | público | Verifica se o servidor está no ar |
-| POST | `/api/access/recognize` | portaria | Recebe o vetor facial, decide e registra o acesso |
-| POST | `/api/enrollment` | portaria | Cadastro: nome, documento, e-mail, consentimento e vetor |
-| POST | `/api/auth/login` · `/api/auth/logout` | público | Entrar / sair |
-| GET | `/api/auth/me` | admin | Sessão atual |
-| GET | `/api/access/date/:data` | admin | Todas as tentativas de uma data |
-| GET | `/api/students` · `/api/students/:id` | admin | Participantes (sem dados faciais) |
-| DELETE | `/api/students/:id` | admin | Exclui participante e histórico |
-| POST | `/api/attendance/register` | admin | Liberação manual da entrada |
+| GET | `/api/health` | public | Health check |
+| POST | `/api/access/recognize` | terminal | Receives the face vector, decides and logs the access |
+| POST | `/api/enrollment` | terminal | Enrollment: name, document, e-mail, consent and vector |
+| POST | `/api/auth/login` · `/api/auth/logout` | public | Sign in / sign out |
+| GET | `/api/auth/me` | admin | Current session |
+| GET | `/api/access/date/:date` | admin | Every attempt on a given date |
+| GET | `/api/students` · `/api/students/:id` | admin | Attendees (without face data) |
+| DELETE | `/api/students/:id` | admin | Deletes an attendee and their history |
+| POST | `/api/attendance/register` | admin | Manual check-in |
 
 </details>
 
 ---
 
-## Stack
+## Tech stack
 
-| Camada | Tecnologias |
+| Layer | Technologies |
 |---|---|
-| **Front-end** | React 19, TypeScript, TanStack Start / Router, Tailwind CSS 4, shadcn/ui (Radix), Recharts |
-| **Visão computacional** | @vladmandic/face-api sobre TensorFlow.js, em Web Worker |
-| **Back-end** | Nitro (Node.js), rotas de API por arquivo |
-| **Banco de dados** | Upstash Redis via @vercel/kv |
-| **PWA / Quiosque** | Web App Manifest, Service Worker, Fullscreen API, Wake Lock API |
-| **Testes** | Playwright (desktop + celular) e @axe-core/playwright |
-| **Build e deploy** | Vite 7, Bun, Vercel (deploy contínuo a cada push na `main`) |
+| **Front end** | React 19, TypeScript, TanStack Start / Router, Tailwind CSS 4, shadcn/ui (Radix), Recharts |
+| **Computer vision** | @vladmandic/face-api on top of TensorFlow.js, in a Web Worker |
+| **Back end** | Nitro (Node.js), file-based API routes |
+| **Database** | Upstash Redis via @vercel/kv |
+| **PWA / Kiosk** | Web App Manifest, Service Worker, Fullscreen API, Wake Lock API |
+| **Testing** | Playwright (desktop + mobile) and @axe-core/playwright |
+| **Build & deploy** | Vite 7, Bun, Vercel (continuous deployment on every push to `main`) |
 
 ---
 
-## Como rodar
+## Running locally
 
-**Pré-requisitos:** [Bun](https://bun.sh) instalado (o `npm install` falha por conflito de *peer dependencies*).
+**Requirements:** [Bun](https://bun.sh) (`npm install` fails due to peer dependency conflicts).
 
 ```bash
 git clone https://github.com/cxrlos99leonel/RecFace.git
@@ -195,71 +202,80 @@ bun install
 bun run dev
 ```
 
-Sem variáveis de ambiente, os dados ficam em memória e o login de teste do painel é
-`admin@recface.local` / `recface123`.
+Without environment variables, data is kept in memory and a **local-only** test login is enabled for the
+dashboard: `admin@recface.local` / `recface123`. This fallback is disabled in production.
 
-**Testes de interface e acessibilidade**
+**UI and accessibility tests**
 
 ```bash
 bun run build
 bun run test:e2e
 ```
 
-**Variáveis de ambiente (produção)**
+**Environment variables (production)**
 
-| Variável | Uso |
+| Variable | Purpose |
 |---|---|
-| `KV_REST_API_URL` · `KV_REST_API_TOKEN` | Conexão com o Upstash Redis |
-| `ADMIN_EMAIL` · `ADMIN_PASSWORD` | Credenciais do administrador |
-| `ADMIN_SESSION_SECRET` | Opcional: segredo para assinar a sessão |
+| `KV_REST_API_URL` · `KV_REST_API_TOKEN` | Upstash Redis connection |
+| `ADMIN_EMAIL` · `ADMIN_PASSWORD` | Admin credentials |
+| `ADMIN_SESSION_SECRET` | Optional: secret used to sign sessions |
 
-> A câmera exige HTTPS (ou `localhost`) e permissão do navegador.
+> The camera requires HTTPS (or `localhost`) and browser permission.
 
 ---
 
-## Estrutura do projeto
+## Project structure
 
 ```
 src/
-  routes/        páginas: site (/), portaria (/plataforma), login e painel (/admin)
-  components/    marca, navegação, componentes do painel e de interface (shadcn/ui)
-  lib/           câmera, reconhecimento (worker + fallback), API, modo quiosque
+  routes/        pages: site (/), entrance terminal (/plataforma), login and dashboard (/admin)
+  components/    brand, navigation, dashboard and UI components (shadcn/ui)
+  lib/           camera, recognition (worker + fallback), API client, kiosk mode
 server/
-  routes/api/    rotas da API, um arquivo por rota
-  lib/           Redis, autenticação, regras de acesso, datas
+  routes/api/    API routes, one file per route
+  lib/           Redis, authentication, access rules, dates
 public/
-  models/        pesos dos três modelos de reconhecimento
-  brand/         logos e símbolo da RecFace
-tests/e2e/       testes Playwright + axe
-docs/prototipo/  imagens do protótipo usadas neste README
+  models/        weights for the three recognition models
+  brand/         RecFace logos and symbol
+tests/e2e/       Playwright + axe tests
+docs/prototipo/  prototype images used in this README
 ```
 
-Detalhes completos de arquitetura, regras de negócio e histórico em
+Full architecture, business rules and history (in Portuguese) in
 [`CONTEXTO-DO-PROJETO.md`](CONTEXTO-DO-PROJETO.md).
 
 ---
 
-## Limitações e próximos passos
+## Limitations and next steps
 
-- [ ] **Prova de vivacidade** (*liveness*): hoje uma foto do rosto diante da câmera pode ser aceita
-- [ ] **Múltiplos eventos** por organizador (a versão atual trata um único local/evento)
-- [ ] **Migração para Vite 8** e versões mais novas do TanStack Start
-- [ ] Portaria aberta por design: em uso real, o terminal deve ficar sob supervisão da equipe
-- [ ] Precisão cai com iluminação ruim, rosto de perfil ou óculos escuros
+- [ ] **Liveness detection**: today, a photo of a face held up to the camera may be accepted
+- [ ] **Multiple events** per organizer (the current version handles a single venue/event)
+- [ ] **Rate limiting** on the public endpoints
+- [ ] **Upgrade to Vite 8** and newer TanStack Start releases
+- [ ] The entrance terminal is open by design: in real use, it must be supervised by staff
+- [ ] Accuracy drops with poor lighting, side profiles or sunglasses
 
 ---
 
-## Equipe
+## Team
 
-Projeto desenvolvido em equipe no curso de Ciência da Computação da **PUC Minas**.
+Built as a team project in the Computer Science program at **PUC Minas**.
 
-**Integrantes:** Carlos Eduardo Divino Souza Leonel · Henrique Rodrigues Martins · João Vitor Garçon dos Reis ·
+**Members:** Carlos Eduardo Divino Souza Leonel · Henrique Rodrigues Martins · João Vitor Garçon dos Reis ·
 Jonas Henrique Teixeira · Luis Augusto de Oliveira Bordin
 
-**Orientadores:** Diego Roberto Gonçalves de Pontes · Udo Fritzke Junior · Will Ricardo dos Santos Machado
+**Advisors:** Diego Roberto Gonçalves de Pontes · Udo Fritzke Junior · Will Ricardo dos Santos Machado
+
+---
+
+## License
+
+© 2026 RecFace team. **All rights reserved.** The source code is public for portfolio and academic
+evaluation purposes only: you may read it, but not copy, modify, distribute or use it without written
+permission. See [`LICENSE`](LICENSE) and the [security policy](SECURITY.md).
 
 ---
 
 <div align="center">
-  <sub>Tecnologia para conectar pessoas a novas experiências.</sub>
+  <sub>Technology that connects people to new experiences.</sub>
 </div>
